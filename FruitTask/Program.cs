@@ -133,3 +133,33 @@ namespace Task
                          </div>
 
 </form>
+
+-- Insert into Members table
+INSERT INTO Members (MemberID, FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email, JoinDate)
+VALUES (1, 'John', 'Doe', '1985-01-01', 'Male', '+1234567890', 'johndoe@example.com', '2023-01-01'),
+       (2, 'Jane', 'Doe', '1990-01-01', 'Female', '+0987654321', 'janedoe@example.com', '2023-01-15');
+
+-- Insert into Subscriptions table
+INSERT INTO Subscriptions (SubscriptionID, MemberID, StartDate, EndDate, SubscriptionType, AmountPaid)
+VALUES (1, 1, '2023-01-01', '2023-12-31', 'Annual', 1200.00),
+       (2, 2, '2023-01-15', '2023-06-15', 'Semi-Annual', 600.00);
+
+-- Insert into Trainers table
+INSERT INTO Trainers (TrainerID, FirstName, LastName, DateOfBirth, Gender, ContactNumber, Email, HireDate, Specialization)
+VALUES (1, 'Mike', 'Smith', '1980-01-01', 'Male', '+1122334455', 'mikesmith@example.com', '2022-01-01', 'Strength Training'),
+       (2, 'Emily', 'Johnson', '1985-01-01', 'Female', '+5566778899', 'emilyjohnson@example.com', '2022-06-01', 'Yoga');
+
+-- Insert into Classes table
+INSERT INTO Classes (ClassID, ClassName, Description, Schedule, TrainerID, MaxCapacity)
+VALUES (1, 'Strength Training', 'A class focused on building muscle and strength.', 'Monday, Wednesday, Friday - 10:00 AM', 1, 20),
+       (2, 'Yoga', 'A class focused on flexibility and mindfulness.', 'Tuesday, Thursday - 8:00 AM', 2, 15);
+
+-- Insert into Attendance table
+INSERT INTO Attendance (AttendanceID, MemberID, ClassID, AttendanceDate)
+VALUES (1, 1, 1, '2023-01-01'),
+       (2, 2, 2, '2023-01-16');
+
+-- Insert into Payments table
+INSERT INTO Payments (PaymentID, MemberID, PaymentDate, Amount, PaymentType)
+VALUES (1, 1, '2023-01-01', 1200.00, 'Credit Card'),
+       (2, 2, '2023-01-15', 600.00, 'Cash');
