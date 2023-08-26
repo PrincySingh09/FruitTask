@@ -265,5 +265,19 @@ namespace Task
     ]
   }
         }
+        {
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "traceId": "00-82e12d4c5e8bb900b1381161630a9bd9-c50437042bdcb9d7-00",
+  "errors": {
+    "attendance": [
+      "The attendance field is required."
+    ],
+    "$.class.trainer.classes[0]": [
+      "The JSON value could not be converted to GymManagementSystem.Models.Class. Path: $.class.trainer.classes[0] | LineNumber: 32 | BytePositionInLine: 11."
+    ]
+  }
+}
         
                          
