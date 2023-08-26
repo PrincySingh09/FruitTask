@@ -133,3 +133,71 @@ namespace Task
                          </div>
 
 </form>
+
+
+{
+  "attendanceId": 0,
+  "memberId": 0,
+  "classId": 0,
+  "attendanceDate": "2023-08-26T16:45:15.188Z",
+  "class": {
+    "classId": 0,
+    "className": "string",
+    "description": "string",
+    "schedule": "string",
+    "trainerId": 0,
+    "maxCapacity": 0,
+    "attendances": [
+      "string"
+    ],
+    "trainer": {
+      "trainerId": 0,
+      "firstName": "string",
+      "lastName": "string",
+      "dateOfBirth": "2023-08-26T16:45:15.188Z",
+      "gender": "string",
+      "contactNumber": "string",
+      "email": "string",
+      "hireDate": "2023-08-26T16:45:15.188Z",
+      "specialization": "string",
+      "classes": [
+        "string"
+      ]
+    }
+  },
+  "member": {
+    "memberId": 0,
+    "firstName": "string",
+    "lastName": "string",
+    "dateOfBirth": "2023-08-26T16:45:15.188Z",
+    "gender": "string",
+    "contactNumber": "string",
+    "email": "string",
+    "joinDate": "2023-08-26T16:45:15.188Z",
+    "attendances": [
+      "string"
+    ],
+    "payments": [
+      {
+        "paymentId": 0,
+        "memberId": 0,
+        "paymentDate": "2023-08-26T16:45:15.188Z",
+        "amount": 0,
+        "paymentType": "string",
+        "member": "string"
+      }
+    ],
+    "subscriptions": [
+      {
+        "subscriptionId": 0,
+        "memberId": 0,
+        "startDate": "2023-08-26T16:45:15.188Z",
+        "endDate": "2023-08-26T16:45:15.188Z",
+        "subscriptionType": "string",
+        "amountPaid": 0,
+        "member": "string"
+      }
+    ]
+  }
+}                         
+                         
