@@ -199,5 +199,71 @@ namespace Task
       }
     ]
   }
-}                         
+} 
+        {
+  "attendanceId": 1,
+  "memberId": 1,
+  "classId": 1,
+  "attendanceDate": "2023-08-26T16:45:15.188Z",
+  "class": {
+    "classId": 1,
+    "className": "Strength Training",
+    "description": "A class focused on building muscle and strength.",
+    "schedule": "Monday, Wednesday, Friday - 10:00 AM",
+    "trainerId": 1,
+    "maxCapacity": 20,
+    "attendances": [
+      "1"
+    ],
+    "trainer": {
+      "trainerId": 1,
+      "firstName": "Mike",
+      "lastName": "Smith",
+      "dateOfBirth": "1980-01-01T00:00:00.000Z",
+      "gender": "Male",
+      "contactNumber": "+1122334455",
+      "email": "mikesmith@example.com",
+      "hireDate": "2022-01-01T00:00:00.000Z",
+      "specialization": "Strength Training",
+      "classes": [
+        "1"
+      ]
+    }
+  },
+  "member": {
+    "memberId": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "1985-01-01T00:00:00.000Z",
+    "gender": "Male",
+    "contactNumber": "+1234567890",
+    "email": "johndoe@example.com",
+    "joinDate": "2023-01-01T00:00:00.000Z",
+    "attendances": [
+      "1"
+    ],
+    "payments": [
+      {
+        "paymentId": 1,
+        "memberId": 1,
+        "paymentDate": "2023-01-01T00:00:00.000Z",
+        "amount": 1200.00,
+        "paymentType": "Credit Card",
+        "member": "1"
+      }
+    ],
+    "subscriptions": [
+      {
+        "subscriptionId": 1,
+        "memberId": 1,
+        "startDate": "2023-01-01T00:00:00.000Z",
+        "endDate": "2023-12-31T00:00:00.000Z",
+        "subscriptionType": "Annual",
+        "amountPaid": 1200.00,
+        "member": "1"
+      }
+    ]
+  }
+        }
+        
                          
