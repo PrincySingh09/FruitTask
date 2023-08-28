@@ -133,3 +133,101 @@ namespace Task
                          </div>
 
 </form>
+
+
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+<div class="container">
+    <form (submit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" [(ngModel)]="trainer.firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" [(ngModel)]="trainer.lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" id="dateOfBirth" [(ngModel)]="trainer.dateOfBirth" name="dateOfBirth" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" [(ngModel)]="trainer.gender" name="gender" required>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" id="contactNumber" [(ngModel)]="trainer.contactNumber" name="contactNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="trainer.email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="hireDate">Hire Date</label>
+            <input type="date" id="hireDate" [(ngModel)]="trainer.hireDate" name="hireDate" required>
+        </div>
+        <div class="form-group">
+            <label for="specialization">Specialization</label>
+            <input type="text" id="specialization" [(ngModel)]="trainer.specialization" name="specialization" required>
+        </div>
+        <button type="submit" class="btn bt">Register</button>
+    </form>
+</div>
+
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+@Component({
+    selector: 'app-reg',
+    templateUrl: './reg.component.html',
+    styleUrls: ['./reg.component.css']
+})
+export class RegComponent implements OnInit {
+    trainer = {
+        firstName: '',
+        lastName: '',
+        dateOfBirth: '',
+        gender: '',
+        contactNumber: '',
+        email: '',
+        hireDate: '',
+        specialization: ''
+    };
+
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+
+    onSubmit(form: NgForm): void {
+        console.log('Form submitted:', form.value);
+        // ... send form data to the server
+    }
+}
+
+
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    FormsModule,
+    // ...
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+    
