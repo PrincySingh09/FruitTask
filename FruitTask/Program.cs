@@ -41,100 +41,80 @@ namespace Task
         }
 
 
-        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+.trainer-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
 
-    <input type="hidden" name="Id" [value]="objservice.ppData.Id">
+.btn-group {
+    margin-top: 10px;
+}
 
-    <div class="form-group">
+.btn-group button {
+    margin-right: 10px;
+}
 
-    <div class="input-group">
+<div class="container">
+    <div class="trainer-card" *ngFor="let trainer of trainers">
+        <h3 class="secondary mb">{{trainer.firstName}} {{trainer.lastName}}</h3>
+        <p class="tertiary mb">Date of Birth: {{trainer.dateOfBirth}}</p>
+        <p class="tertiary mb">Gender: {{trainer.gender}}</p>
+        <p class="tertiary mb">Contact Number: {{trainer.contactNumber}}</p>
+        <p class="tertiary mb">Email: {{trainer.email}}</p>
+        <p class="tertiary mb">Hire Date: {{trainer.hireDate}}</p>
+        <p class="tertiary mb">Specialization: {{trainer.specialization}}</p>
+        <div class="btn-group">
+            <button class="btn bt" (click)="onUpdate(trainer)">Update</button>
+            <button class="btn bt" (click)="onDelete(trainer)">Delete</button>
+        </div>
+    </div>
+</div>
 
-    <div class="input-group-prepend">    
+import { Component, OnInit } from '@angular/core';
 
-     <div class="input-group-text bg-white">
+@Component({
+    selector: 'app-display',
+    templateUrl: './display.component.html',
+    styleUrls: ['./display.component.css']
+})
+export class DisplayComponent implements OnInit {
+    trainers = [
+        {
+            firstName: 'John',
+            lastName: 'Doe',
+            dateOfBirth: '1990-01-01',
+            gender: 'Male',
+            contactNumber: '1234567890',
+            email: 'john.doe@example.com',
+            hireDate: '2022-01-01',
+            specialization: 'Fitness'
+        },
+        // ... other trainers
+    ];
 
-     <i class="fa fa-user-circle-o" aria-hidden="true" [class.green-icon]="HolderName.valid"
+    constructor() { }
 
-      [class.red-icon]="HolderName.invalid && HolderName.touched"></i>
+    ngOnInit(): void {
+    }
 
-     <input name="HolderName" #HolderName="ngModel"   [(ngModel)]="objservice.ppData.HolderName"
+    onUpdate(trainer): void {
+        console.log('Update trainer:', trainer);
+        // ... implement your update logic
+    }
 
-     placeholder="PassPort Holder Name" class="form-control" required>    
+    onDelete(trainer): void {
+        console.log('Delete trainer:', trainer);
+        // ... implement your delete logic
+    }
+}
 
-    </div></div>  </div>   </div>
-          <div class="form-group">
+.form-group {
+    margin-bottom: 15px;
+}
 
-        <div class="input-group">
-
-        <div class="input-group-prepend">    
-
-         <div class="input-group-text bg-white">
-
-         <i class="fa fa-diamond" aria-hidden="true" [class.green-icon]="PassportNumber.valid" [class.red-icon]="PassportNumber.invalid && PassportNumber.touched"></i>
-
-         <input name="PPNumber" #PassportNumber="ngModel" [(ngModel)]="objservice.ppData.PassportNumber"
-
-         placeholder="PPNumber" class="form-control" required maxlength="10" minlength="10">    
-
-        </div></div>  </div>   </div>
-             <div class="form-group">
-
-            <div class="input-group">
-
-            <div class="input-group-prepend">    
-
-             <div class="input-group-text bg-white">
-
-             <i class="fa fa-calendar" aria-hidden="true" [class.green-icon]="Expiry.valid"
-
-              [class.red-icon]="Expiry.invalid && Expiry.touched"></i>
-
-             <input name="PPExpirationDate" #Expiry="ngModel" [(ngModel)]="objservice.ppData.Expiry"
-
-              placeholder="MM/YY"
-
-              class="form-control" required maxlength="5" minlength="5">    
-
-            </div></div>  </div>   </div>
-                  
-                  <div class="form-group">
-
-                <div class="input-group">
-
-                <div class="input-group-prepend">    
-
-                 <div class="input-group-text bg-white">
-
-                 <i class="fa fa-compass" aria-hidden="true"
-
-                  [class.green-icon]="POCode.valid" [class.red-icon]="POCode.invalid && POCode.touched"></i>
-
-                 <input name="PPOCode" #POCode="ngModel"
-
-                 [(ngModel)]="objservice.ppData.POCode"
-
-                  placeholder="POCode"
-
-                  class="form-control" required
-
-                  maxlength="6"
-
-                  minlength="6">    
-
-                </div></div>  </div>   </div>
-                      <div class="form-group">
-
-                  <button class="btn btn-success btn-lg"  type="submit"
-
-                      [disabled]="form.invalid">
-
-                     <i class="fa fa-database"></i> Create/Update Passport </button>  
-
-                         </div>
-
-</form>
-
-
+.form-group label {
     display: block;
 }
 
@@ -215,19 +195,9 @@ export class RegComponent implements OnInit {
 }
 
 
-import { FormsModule } from '@angular/forms';
 
-@NgModule({
-  declarations: [
-    // ...
-  ],
-  imports: [
-    // ...
-    FormsModule,
-    // ...
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+
+
+        
     
+
