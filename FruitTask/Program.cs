@@ -195,7 +195,83 @@ export class RegComponent implements OnInit {
 }
 
 
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="ID" [value]="objService.attendanceData.attendanceID">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-user-circle-o" aria-hidden="true" [class.green-icon]='objService.attendanceData.attendanceID.valid'
+                    [class.red-icon]="objService.attendanceData.attendanceID.invalid && objService.attendanceData.attendanceID.touched"></i>
+                    <input name="attendanceID" #attendanceID="ngModel" [(ngModel)]="objService.attendanceData.attendanceID" placeholder="Attendance ID" class="form-control" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-diamond" aria-hidden="true" [class.green-icon]='objService.attendanceData.memberID.valid'
+                    [class.red-icon]="objService.attendanceData.memberID.invalid && objService.attendanceData.memberID.touched"></i>
+                    <input name="memberID" #memberID="ngModel" [(ngModel)]="objService.attendanceData.memberID" placeholder="member ID" class="form-control" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-calender" aria-hidden="true" [class.green-icon]='objService.attendanceData.AttendanceDate.valid'
+                    [class.red-icon]="objService.attendanceData.AttendanceDate.invalid && objService.attendanceData.AttendanceDate.touched"></i>
+                    <input name="AttendanceDate" #AttendanceDate="ngModel" [(ngModel)]="objService.attendanceData.AttendanceDate" placeholder="Attendance Date" class="form-control" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg" type="submit" [disabled]="form.invalid">
+            <i class="fa fa-database"></i> Create/Update Branch </button>
+    </div>
+</form>
+import { Component,OnInit } from '@angular/core';
+import { AttendancesService } from 'src/app/shared/attendances.service';
+import { Attendances } from 'src/app/shared/attendances.model';
+import { NgForm } from '@angular/forms';
 
+@Component({
+  selector: 'app-reg',
+  templateUrl: './reg.component.html',
+  styleUrls: ['./reg.component.css']
+})
+export class RegComponent implements OnInit{
+  
+  constructor(public objService:AttendancesService){}
+  ngOnInit(): void {
+    this.resetForm();
+  }
+  resetForm(form?:NgForm)
+  {
+    if(form!=null){form.form.reset();}
+    else{this.objService.attendanceData={attendanceID:0,memberID:0,classID:0,AttendanceDate:''}}
+  }
+  onSubmit(form:NgForm)
+  {
+    if(this.objService.attendanceData.attendanceID=0){
+      this.insertRecord(form);
+    }
+    else{
+      this.updateRecord(form);
+    }
+  }
+  insertRecord(form:NgForm){
+    this.objService.postAttendance().subscribe(res=>{this.resetForm(form);this.objService.getAttendanceList();alert('Attendance Registered Successfully');},err=>{alert('Error !!!'+err);})
+  }
+  updateRecord(form:NgForm){
+    this.objService.putAttendance().subscribe(res=>{this.resetForm(form);this.objService.getAttendanceList();alert('Attendance Updated Successfully');},err=>{alert('Error !!!'+err);})
+  }
+}
 
 
         
